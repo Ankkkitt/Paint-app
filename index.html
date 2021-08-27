@@ -8,9 +8,27 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <canvas id="canvas" >
 
-    </canvas>
+    <h2 class="heading">Simple Drawing Board 🖌️</h2>
+
+    <canvas id="canvas" height="350" width="700"></canvas>
+
+    <div id="header">
+        <div class="color-wrapper">
+            <span> Size</span>
+            <select id="size" onchange="resize()">
+                <option value="2">2</option>
+                <option value="4">4</option>
+                <option value="6">6</option>
+                <option value="8">8</option>
+                <option value="10">10</option>
+                <option value="12">12</option>
+            </select>
+            <span>Colors </span>
+            <input type="color" id="colors"  />
+            <button id="clear">Clear</button>
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>

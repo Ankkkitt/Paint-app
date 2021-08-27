@@ -1,10 +1,50 @@
-*{
-    padding: 0;
-    margin: 0;
+* {
     box-sizing: border-box;
+    padding:0px;
+    margin:0px;
 }
 
-#canvas{
-    border: 1px solid black;
-    margin: 5px;
+body{
+    height:100%;
+    width:100%;
 }
+
+.heading{
+    text-align: center;
+    margin: 10px 0;
+}
+
+#canvas {
+    background: #FFF;
+    display: block;
+    margin: auto;
+	border-radius: 5px;
+	border-left: 1px solid #E0E0E0;
+	border-right: 1px solid #E0E0E0;
+	border-top: 1px solid #E0E0E0;
+	box-shadow: 0 4px 0 0 #E0E0E0;
+}
+
+#header {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+span{
+    font-size: 20px;
+    margin-left: 7px;
+}
+
+button{
+    margin-left: 10px;
+    background: #4834d4;
+	color: #fff;
+	cursor: pointer;
+	font-size: 16px;
+    border-style: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+

@@ -1,10 +1,45 @@
 window.addEventListener('load', () =>{
     const canvas = document.querySelector("#canvas");
     const ctx = canvas.getContext("2d");
+    let clearbtn = document.getElementById("clear");;
+    ctx.width = window.innerWidth;
+    let painting = false;           // to know we should draw or not
 
-    // Resizing the
-    canvas.height = window.innerHeight;
-    canvas.width = window.innerWidth;
+    function startPosition(){
+        painting = true;
+    }
+    function finishPosition(){
+        painting = false;
+        ctx.beginPath();
+    }
+
+
+    function draw(e){
+        if(!painting) return; //
+
+        ctx.lineWidth = document.getElementById('size').value;
+        ctx.lineCap = 'round';   // it will make just round like line
+        ctx.strokeStyle = document.getElementById('colors').value;
+        ctx.lineTo(e.offsetX, e.offsetY);  // mouseposition of mouse
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(e.offsetX, e.offsetY);
+    }
+    
+    function clearCanvas(){
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+    // Eventlisteners
+    canvas.addEventListener('mousedown', startPosition);
+    canvas.addEventListener('mouseup', finishPosition);
+    canvas.addEventListener('mousemove', draw);
+    clearbtn.addEventListener('click', clearCanvas);
+
+})
+
+
+
+// Resizing the
     
     // ctx.fillRect(50, 50, 200, 200);          // x, y, width, height
 
@@ -21,30 +56,3 @@ window.addEventListener('load', () =>{
     // ctx.stroke();               // to show it on canvas.
 
     // variables for
-    let painting = false;           // to know we should draw or not
-
-    function startPosition(){
-        painting = true;
-    }
-    function finishPosition(){
-        painting = false;
-        ctx.beginPath();
-    }
-    function draw(e){
-        if(!painting) return; //
-
-        ctx.lineWidth = 5;
-        ctx.lineCap = 'round';   // it will make just round like line
-        ctx.strokeStyle = 'purple'; 
-
-        ctx.lineTo(e.clientX, e.clientY);  // mouseposition of mouse
-        ctx.stroke();
-        ctx.beginPath();
-        ctx.moveTo(e.clientX, e.clientY);
-    }
-    // Eventlisteners
-    canvas.addEventListener('mousedown', startPosition);
-    canvas.addEventListener('mouseup', finishPosition);
-    canvas.addEventListener('mousemove', draw);
-
-})
